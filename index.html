@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface with Avatars</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Chat title -->
+        <div class="chat-title">AI小猪</div>
+    
+        <div id="chat-history" class="chat-history">
+            <!-- Example Bot Message -->
+            <div class="chat-message bot-message">
+                <img src="https://img.shoplineapp.com/media/image_clips/620b69a4b62f160029421122/original.png?1644915107" alt="Bot Avatar" class="avatar">
+                <div class="message-content">你好小猪！我可以怎么帮助你?</div>
+            </div>
+            <!-- Example User Message -->
+            <div class="chat-message user-message">
+                <img src="https://p8.itc.cn/images01/20210712/58988b898401400e8824d4b0bd7daca5.jpeg" alt="User Avatar" class="avatar">
+            </div>
+        </div>
+    
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
