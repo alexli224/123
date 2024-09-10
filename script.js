@@ -1,5 +1,3 @@
-// script.js
-
 document.getElementById('send-button').addEventListener('click', sendMessage);
 
 document.getElementById('user-input').addEventListener('keydown', function(event) {
@@ -8,7 +6,39 @@ document.getElementById('user-input').addEventListener('keydown', function(event
     }
 });
 
+// 状态变量来控制 GPT 模式
+let isGPTEnabled = false;
+
 function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const messageText = userInput.value.trim();
+
+    if (messageText !== '') {
+        addMessage('user', messageText);
+        userInput.value = '';
+
+        // 检查是否是切换 GPT 模式的指令
+        if (messageText.toLowerCase() === '猪gpt过来') {
+            isGPTEnabled = true;
+            addMessage('bot', '猪gpt来啦，机器小狗去休息喽！');
+            return;
+        } else if (messageText.toLowerCase() === '猪pt走开') {
+            isGPTEnabled = false;
+            addMessage('bot', '收到！机器小狗回来啦！');
+            return;
+        }
+
+        if (isGPTEnabled) {
+            // 使用 OpenAI API 获取回复
+            fetchOpenAIResponse(messageText);
+        } else {
+            // 使用本地预设的回复
+            generatePresetResponse(messageText);
+        }
+    }
+}
+
+function generatePresetResponse() {
     const userInput = document.getElementById('user-input');
     const messageText = userInput.value.trim();
 
@@ -74,7 +104,6 @@ function sendMessage() {
     }
 }
 
-
 function addMessage(sender, text) {
     const chatHistory = document.getElementById('chat-history');
     const messageElement = document.createElement('div');
@@ -104,20 +133,30 @@ function addMessage(sender, text) {
     // Scroll to the bottom of the chat history
     chatHistory.scrollTop = chatHistory.scrollHeight;
 }
-function showMessage(messageElement) {
-    messageElement.classList.add('chat-message');
-}
 
-function handleNewMessage(messageText) {
-    const messageElement = document.createElement('div');
-    messageElement.className = 'message-content';
-    messageElement.textContent = messageText;
-    const messageWrapper = document.createElement('div');
-    messageWrapper.className = 'chat-message-wrapper';
-    messageWrapper.appendChild(messageElement);
-    document.querySelector('.chat-history').appendChild(messageWrapper);
-    
-    requestAnimationFrame(() => {
-        showMessage(messageWrapper);
-    });
+async function fetchOpenAIResponse(prompt) {
+    const apiKey = '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';
+    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: 'gpt-4', // 或者你希望使用的任何模型
+                messages: [{ role: 'user', content: prompt }],
+                max_tokens: 100 // 可以根据需要调整
+            })
+        });
+
+        const data = await response.json();
+        const gptResponse = data.choices[0].message.content;
+        addMessage('bot', gptResponse);
+    } catch (error) {
+        console.error('Error fetching OpenAI response:', error);
+        addMessage('bot', '抱歉，无法从 OpenAI 获取响应。');
+    }
 }
