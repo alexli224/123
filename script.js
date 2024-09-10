@@ -99,7 +99,7 @@ async function fetchOpenAIResponse(prompt) {
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'gpt-3.5-turbo', // 或者你希望使用的任何模型
+                model: 'gpt-4', // 或者你希望使用的任何模型
                 messages: [{ role: 'user', content: prompt }],
                 max_tokens: 100 // 可以根据需要调整
             })
