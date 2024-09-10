@@ -126,7 +126,7 @@ function addMessage(sender, text) {
 }
 
 async function fetchOpenAIResponse(prompt) {
-    const apiKey = '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';  // 需要填写你的 OpenAI API 密钥
+    const apiKey = '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';  // 需要填写你的 OpenAI API 密钥
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
     try {
