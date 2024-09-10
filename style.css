@@ -41,7 +41,7 @@ body {
 .chat-container {
     width: 750px;
     height: 500px;
-    background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+    background: rgba(255, 255, 255, 0.6); /* 半透明白色背景 */
     background-size: cover; 
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
