@@ -18,7 +18,7 @@ function sendMessage() {
         userInput.value = '';
 
         // 检查是否是切换 GPT 模式的指令
-        if (messageText.toLowerCase() === '猪gpt过来') {
+        if (messageText.toLowerCase() === '猪pt过来') {
             isGPTEnabled = true;
             addMessage('bot', '猪gpt来啦，机器小狗去休息喽！');
             return;
