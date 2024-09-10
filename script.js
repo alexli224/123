@@ -135,7 +135,7 @@ function addMessage(sender, text) {
 }
 
 async function fetchOpenAIResponse(prompt) {
-    const apiKey = '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';
+    const apiKey = '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‘;
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
     try {
