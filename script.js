@@ -88,7 +88,7 @@ function addMessage(sender, text) {
 }
 
 async function fetchOpenAIResponse(prompt) {
-    const apiKey = '你的 OpenAI API 密钥';
+    const apiKey = 'sk-qyKAMUhS14rHUYb_67mIsWWfKpfELE4X04epgmkhX_T3BlbkFJnMLM1rlC82pZKL07MrrfMpEHRPC0vnmX-4HobGrh0A';
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
     try {
