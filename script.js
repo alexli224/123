@@ -27,7 +27,7 @@ function sendMessage() {
                 botResponse = '我是一个小狗创造的机器小狗，目前还没有名字！';
             } else if (messageText.toLowerCase().includes('最喜欢谁')) {
                 botResponse = '小狗当然最喜欢可可猪啦！';
-            } else if (messageText.toLowerCase().includes('我饿了')) {
+            } else if (messageText.toLowerCase().includes('饿了')|| messageText.toLowerCase().includes('吃饭')) {
                 botResponse = '机器小狗不会做饭！可以微信给小狗发“可可饿了”';
             } else if (messageText.toLowerCase().includes('你能做什么')) {
                 botResponse = '我目前只能回答可可猪一些简单的问题，并且模仿小狗聊天。';
