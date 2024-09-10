@@ -93,7 +93,7 @@ function addMessage(sender, text) {
         avatarElement.alt = 'User Avatar';
     } else if (sender === 'bot') {
         messageElement.classList.add('bot-message');
-        avatarElement.src = 'https://img.shoplineapp.com/media/image_clips/620b69a4b62f160029421122/original.png?1644915107';  // Path to bot avatar image
+        avatarElement.src = 'keke.png';  // Path to bot avatar image
         avatarElement.alt = 'Bot Avatar';
     }
 
