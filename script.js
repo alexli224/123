@@ -89,11 +89,11 @@ function addMessage(sender, text) {
 
     if (sender === 'user') {
         messageElement.classList.add('user-message');
-        avatarElement.src = 'https://p8.itc.cn/images01/20210712/58988b898401400e8824d4b0bd7daca5.jpeg';  // Path to user avatar image
+        avatarElement.src = 'keke.png';  // Path to user avatar image
         avatarElement.alt = 'User Avatar';
     } else if (sender === 'bot') {
         messageElement.classList.add('bot-message');
-        avatarElement.src = 'keke.png';  // Path to bot avatar image
+        avatarElement.src = 'meme.png';  // Path to bot avatar image
         avatarElement.alt = 'Bot Avatar';
     }
 
